@@ -40,6 +40,7 @@ class MasterViewController: UICollectionViewController {
       let width = CGRectGetWidth(collectionView!.frame) / 3
       let layout = collectionViewLayout as! UICollectionViewFlowLayout
       layout.itemSize = CGSize(width: width, height: width)
+      layout.sectionHeadersPinToVisibleBounds = true
 
     }
 
@@ -108,6 +109,10 @@ class MasterViewController: UICollectionViewController {
     }
     
   }
+    
+    override func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        papersDataSource.movePaperAtIndexPath(sourceIndexPath, toIndexPath: destinationIndexPath)
+    }
   
     // MARK: UICollectionViewDataSource
 
